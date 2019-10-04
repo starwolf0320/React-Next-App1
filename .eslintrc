@@ -22,6 +22,8 @@
     "no-underscore-dangle": 0,
     "arrow-parens": "off",
     "no-multiple-empty-lines": "off",
+    "import/newline-after-import": "off",
+    "react/prop-types": "off",
     "react/jsx-indent": 0,
     "react/jsx-indent-props": 0,
     "react/jsx-filename-extension": 0,
