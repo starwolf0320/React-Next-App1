@@ -33,6 +33,13 @@ $ npm run start
 
 ```
 
+## Run the code linter
+
+```
+$ npm run lint:fix
+
+```
+
 ## Languages & tools
 
 - [Node](https://nodejs.org/en/)
@@ -43,5 +50,6 @@ $ npm run start
 
 - [Next](https://nextjs.org/)
 
+- [ESLint](https://eslint.org/)
 
 

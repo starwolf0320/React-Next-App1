@@ -15,6 +15,12 @@
     "type": "git",
     "url": "git+https://github.com/mohamedsamara/React-Next-App.git"
   },
+  "keywords": [
+    "react",
+    "next",
+    "express",
+    "eslint"
+  ],
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
   "license": "ISC",
   "bugs": {
