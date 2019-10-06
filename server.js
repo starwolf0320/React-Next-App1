@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const next = require('next');
 
@@ -5,6 +6,8 @@ const routes = require('./routes');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
+
+console.log('MONGO_URI is', process.env.MONGO_URI);
 
 const app = next({ dev });
 
