@@ -8,7 +8,10 @@ const Index = ({ todos }) => (
         <li key={todo.id}>{todo.name}</li>
       ))}
     </ul>
-    <Link href="/test">Test</Link>
+
+    <Link href="/test">
+      <a>Test</a>
+    </Link>
   </div>
 );
 
