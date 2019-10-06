@@ -16,7 +16,7 @@ const Index = ({ todos }) => (
 );
 
 Index.getInitialProps = async () => {
-  const response = await fetch('http://localhost:3000/api/todo');
+  const response = await fetch('http://localhost:3000/api/todos');
   const todos = await response.json();
   console.log(todos);
 
