@@ -1,26 +1,8 @@
-import fetch from 'isomorphic-unfetch';
-import Link from 'next/link';
+import Home from './home';
 
-const Index = ({ todos }) => (
+const App = () => (
   <div>
-    <ul>
-      {todos.map(todo => (
-        <li key={todo.id}>{todo.name}</li>
-      ))}
-    </ul>
-
-    <Link href="/test">
-      <a>Test</a>
-    </Link>
+    <Home />
   </div>
 );
-
-Index.getInitialProps = async () => {
-  const response = await fetch('http://localhost:3000/api/todos');
-  const todos = await response.json();
-  console.log(todos);
-
-  return { todos };
-};
-
-export default Index;
+export default App;
