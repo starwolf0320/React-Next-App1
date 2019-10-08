@@ -1,16 +1,15 @@
 import fetch from 'isomorphic-unfetch';
 
 import Layout from './components/layout';
+import TodoItem from './components/todoItem';
 
 function Todos({ todos }) {
   return (
     <Layout>
       <h1>Todos</h1>
-      <ul>
-        {todos.map(todo => (
-          <li key={todo.id}>{todo.name}</li>
-        ))}
-      </ul>
+      {todos.map((todo, index) => (
+        <TodoItem key={index} todo={todo} />
+      ))}
     </Layout>
   );
 }

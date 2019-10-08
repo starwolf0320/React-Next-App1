@@ -24,6 +24,8 @@
     "no-multiple-empty-lines": "off",
     "import/newline-after-import": "off",
     "jsx-a11y/anchor-is-valid": "off",
+    "react/button-has-type": "off",
+    "react/no-array-index-key": "off",
     "react/prop-types": "off",
     "react/jsx-indent": 0,
     "react/jsx-indent-props": 0,
