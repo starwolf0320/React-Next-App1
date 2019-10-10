@@ -12,7 +12,7 @@
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/mohamedsamara/React-Next-App.git
+$ git clone https://github.com/mohamedsamara/react-next-app.git
 $ cd project
 $ npm install
 
