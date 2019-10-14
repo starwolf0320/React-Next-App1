@@ -1,25 +1,62 @@
 import fetch from 'isomorphic-unfetch';
 
-import Layout from './components/layout';
-import TodoItem from './components/todoItem';
+import Layout from '../components/Layout';
+import TodoList from '../components/TodoList';
+import TodoForm from '../components/TodoForm';
+import useTodoState from '../components/useTodoState';
 
-function Todos({ todos }) {
+const Todos = ({ todosData }) => {
+  const { todos, addTodo } = useTodoState(todosData);
+
+  // add todo api
+  const addTodoApi = item => {
+    fetch('http://localhost:3000/api/todo/add', {
+      method: 'POST',
+      body: JSON.stringify(item),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        addTodo(json);
+        console.log('item is added', json);
+      });
+  };
+
+  const handleSubmit = itemValue => {
+    const newItem = {
+      name: itemValue,
+      isCompleted: false,
+    };
+
+    // call the add todo api
+    addTodoApi(newItem);
+  };
+
   return (
     <Layout>
       <h1>Todos</h1>
-      {todos.map((todo, index) => (
-        <TodoItem key={index} todo={todo} />
-      ))}
+
+      <TodoForm
+        saveTodo={todoText => {
+          const trimmedText = todoText.trim();
+
+          if (trimmedText.length > 0) {
+            handleSubmit(trimmedText);
+          }
+        }}
+      />
+      <TodoList todos={todos} />
     </Layout>
   );
-}
+};
 
-Todos.getInitialProps = async () => {
-  const response = await fetch('http://localhost:3000/api/todos');
-  const todos = await response.json();
-  console.log(todos);
-
-  return { todos };
+Todos.getInitialProps = async ({ req }) => {
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+  const response = await fetch(`${baseUrl}/api/todos`);
+  const todosData = await response.json();
+  return { todosData };
 };
 
 export default Todos;

@@ -2,12 +2,9 @@ const Mongoose = require('mongoose');
 
 const { Schema } = Mongoose;
 
-// Task Schema
-const TaskSchema = new Schema({
+// Todo Schema
+const TodoSchema = new Schema({
   name: {
-    type: String,
-  },
-  description: {
     type: String,
   },
   isCompleted: {
@@ -15,4 +12,4 @@ const TaskSchema = new Schema({
   },
 });
 
-module.exports = Mongoose.model('Task', TaskSchema);
+module.exports = Mongoose.model('Todo', TodoSchema);

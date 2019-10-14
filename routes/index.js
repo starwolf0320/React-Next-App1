@@ -2,15 +2,26 @@ const express = require('express');
 const router = express.Router();
 
 // Bring in Models
-const Task = require('../models/task');
+const Todo = require('../models/todo');
 
 // read all tasks api
 router.get('/todos', (req, res, next) => {
-  Task.find()
+  Todo.find()
     .exec()
-    .then(task => {
-      res.json(task);
+    .then(todo => {
+      res.json(todo);
     })
+    .catch(err => next(err));
+});
+
+router.post('/todo/add', (req, res, next) => {
+  const todo = new Todo({
+    name: req.body.name,
+    isCompleted: req.body.isCompleted,
+  });
+  todo
+    .save()
+    .then(() => res.json(todo))
     .catch(err => next(err));
 });
 
