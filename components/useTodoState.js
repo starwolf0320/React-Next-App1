@@ -8,5 +8,10 @@ export default initialValue => {
     addTodo: todoText => {
       setTodos([...todos, todoText]);
     },
+    deleteTodo: todoIndex => {
+      const newTodos = todos.filter((_, index) => index !== todoIndex);
+
+      setTodos(newTodos);
+    },
   };
 };

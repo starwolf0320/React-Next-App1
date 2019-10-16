@@ -6,7 +6,7 @@ import TodoForm from '../components/TodoForm';
 import useTodoState from '../components/useTodoState';
 
 const Todos = ({ todosData }) => {
-  const { todos, addTodo } = useTodoState(todosData);
+  const { todos, addTodo, deleteTodo } = useTodoState(todosData);
 
   // add todo api
   const addTodoApi = item => {
@@ -24,6 +24,21 @@ const Todos = ({ todosData }) => {
       });
   };
 
+  // delete todo api
+  const deleteTodoApi = (todoIndex, todoId) => {
+    fetch(`http://localhost:3000/api/todo/delete/${todoId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        deleteTodo(todoIndex);
+        console.log('item is deleted', json);
+      });
+  };
+
   const handleSubmit = itemValue => {
     const newItem = {
       name: itemValue,
@@ -32,6 +47,11 @@ const Todos = ({ todosData }) => {
 
     // call the add todo api
     addTodoApi(newItem);
+  };
+
+  const handleDelete = (todoIndex, todoId) => {
+    // call the delete todo api
+    deleteTodoApi(todoIndex, todoId);
   };
 
   return (
@@ -47,7 +67,7 @@ const Todos = ({ todosData }) => {
           }
         }}
       />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} deleteTodo={handleDelete} />
     </Layout>
   );
 };

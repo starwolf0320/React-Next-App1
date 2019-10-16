@@ -25,4 +25,11 @@ router.post('/todo/add', (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.delete('/todo/delete/:id', (req, res, next) => {
+  Todo.deleteOne({ _id: req.params.id })
+    .exec()
+    .then(todo => res.json(todo))
+    .catch(err => next(err));
+});
+
 module.exports = router;
