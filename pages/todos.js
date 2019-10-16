@@ -6,13 +6,13 @@ import TodoForm from '../components/TodoForm';
 import useTodoState from '../components/useTodoState';
 
 const Todos = ({ todosData }) => {
-  const { todos, addTodo, deleteTodo } = useTodoState(todosData);
+  const { todos, addTodo, completeTodo, deleteTodo } = useTodoState(todosData);
 
   // add todo api
-  const addTodoApi = item => {
+  const addTodoApi = todo => {
     fetch('http://localhost:3000/api/todo/add', {
       method: 'POST',
-      body: JSON.stringify(item),
+      body: JSON.stringify(todo),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
@@ -39,6 +39,21 @@ const Todos = ({ todosData }) => {
       });
   };
 
+  // complete todo api
+  const completeTodoApi = (todoId, todo) => {
+    fetch(`http://localhost:3000/api/todo/complete/${todoId}`, {
+      method: 'PUT',
+      body: JSON.stringify(todo),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log('todo status', json);
+      });
+  };
+
   const handleSubmit = itemValue => {
     const newItem = {
       name: itemValue,
@@ -54,6 +69,17 @@ const Todos = ({ todosData }) => {
     deleteTodoApi(todoIndex, todoId);
   };
 
+  const handleCompleteTodo = (todoIndex, todoId, value) => {
+    const newItem = {
+      isCompleted: value,
+    };
+
+    completeTodo(todoIndex, value);
+
+    // call the delete todo api
+    completeTodoApi(todoId, newItem);
+  };
+
   return (
     <Layout>
       <h1>Todos</h1>
@@ -67,7 +93,11 @@ const Todos = ({ todosData }) => {
           }
         }}
       />
-      <TodoList todos={todos} deleteTodo={handleDelete} />
+      <TodoList
+        todos={todos}
+        completeTodo={handleCompleteTodo}
+        deleteTodo={handleDelete}
+      />
     </Layout>
   );
 };
