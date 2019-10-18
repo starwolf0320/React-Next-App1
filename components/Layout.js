@@ -1,21 +1,17 @@
-import Link from 'next/link';
+import React from 'react';
+
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
+import Header from './Header';
 
 const Layout = props => (
-  <div className="layout">
-    <ul>
-      <li>
-        <Link href="/todos">
-          <a>Todos</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/home">
-          <a>Home</a>
-        </Link>
-      </li>
-    </ul>
-    {props.children}
-  </div>
+  // React Fragment
+  <>
+    <CssBaseline />
+    <Header />
+    <Container maxWidth="sm">{props.children}</Container>
+  </>
 );
 
 export default Layout;
