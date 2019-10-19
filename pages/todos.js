@@ -1,12 +1,23 @@
 import fetch from 'isomorphic-unfetch';
 
+import ListSubheader from '@material-ui/core/ListSubheader';
+import { makeStyles } from '@material-ui/core/styles';
+
 import Layout from '../components/Layout';
 import TodoList from '../components/TodoList';
 import TodoForm from '../components/TodoForm';
 import useTodoState from '../components/useTodoState';
 
+const useStyles = makeStyles({
+  stickyHeader: {
+    backgroundColor: '#fff',
+  },
+});
+
 const Todos = ({ todosData }) => {
   const { todos, addTodo, completeTodo, deleteTodo } = useTodoState(todosData);
+
+  const classes = useStyles();
 
   // add todo api
   const addTodoApi = todo => {
@@ -82,17 +93,18 @@ const Todos = ({ todosData }) => {
 
   return (
     <Layout>
-      <h1>Todos</h1>
+      <ListSubheader className={classes.stickyHeader}>
+        <TodoForm
+          saveTodo={todoText => {
+            const trimmedText = todoText.trim();
 
-      <TodoForm
-        saveTodo={todoText => {
-          const trimmedText = todoText.trim();
+            if (trimmedText.length > 0) {
+              handleSubmit(trimmedText);
+            }
+          }}
+        />
+      </ListSubheader>
 
-          if (trimmedText.length > 0) {
-            handleSubmit(trimmedText);
-          }
-        }}
-      />
       <TodoList
         todos={todos}
         completeTodo={handleCompleteTodo}

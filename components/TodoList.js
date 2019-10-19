@@ -11,6 +11,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
+  root: {
+    position: 'relative',
+    overflow: 'auto',
+    maxHeight: 700,
+  },
   todoCompleted: {
     textDecoration: 'line-through',
   },
@@ -20,9 +25,9 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) => {
   const classes = useStyles();
 
   return (
-    <List>
+    <List className={classes.root}>
       {todos.map((todo, index) => (
-        <ListItem key={index.toString()} dense button>
+        <ListItem key={index.toString()} dense>
           <ListItemText
             primary={todo.name}
             className={todo.isCompleted ? classes.todoCompleted : ''}
