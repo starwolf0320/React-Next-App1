@@ -1,8 +1,5 @@
 import Home from './home';
 
-const App = () => (
-  <div>
-    <Home />
-  </div>
-);
-export default App;
+const Index = () => <Home />;
+
+export default Index;

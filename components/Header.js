@@ -5,8 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import SvgIcon from '@material-ui/core/SvgIcon';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -26,7 +25,22 @@ const useStyles = makeStyles(() => ({
       },
     },
   },
+  homeIcon: {
+    marginRight: 10,
+  },
+  titleLink: {
+    textDecoration: 'none',
+    color: '#fff',
+  },
 }));
+
+const HomeIcon = props => {
+  return (
+    <SvgIcon {...props}>
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+    </SvgIcon>
+  );
+};
 
 const Header = () => {
   const classes = useStyles();
@@ -35,16 +49,16 @@ const Header = () => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
+          <HomeIcon
+            className={classes.homeIcon}
             aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
+            color="inherit"
+            edge="start"
+          />
           <Typography variant="h6" className={classes.title}>
-            Todo Application
+            <Link href="/">
+              <a className={classes.titleLink}>Todo Application</a>
+            </Link>
           </Typography>
           <ul className={classes.menuLinks}>
             <li>
