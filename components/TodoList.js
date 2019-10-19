@@ -30,10 +30,12 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) => {
         <ListItem key={index.toString()} dense>
           <ListItemText
             primary={todo.name}
+            color="secondary"
             className={todo.isCompleted ? classes.todoCompleted : ''}
           />
           <ListItemSecondaryAction>
             <IconButton
+              color="secondary"
               aria-label="Delete"
               onClick={() => {
                 deleteTodo(index, todo._id);
@@ -41,7 +43,6 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) => {
             >
               <DeleteOutlineIcon />
             </IconButton>
-
             <FormControlLabel
               control={
                 <Checkbox
@@ -49,7 +50,7 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) => {
                   onChange={() => {
                     completeTodo(index, todo._id, !todo.isCompleted);
                   }}
-                  color="primary"
+                  color="secondary"
                 />
               }
             />

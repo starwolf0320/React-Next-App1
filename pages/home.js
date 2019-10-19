@@ -40,37 +40,44 @@ const Home = () => {
         <Chip
           icon={<DoneIcon fontSize="small" />}
           label="Next Js"
-          color="primary"
+          color="secondary"
+          variant="outlined"
         />
         <Chip
           icon={<DoneIcon fontSize="small" />}
           label="React"
-          color="primary"
+          color="secondary"
+          variant="outlined"
         />
         <Chip
           icon={<DoneIcon fontSize="small" />}
           label="Express"
-          color="primary"
+          color="secondary"
+          variant="outlined"
         />
         <Chip
           icon={<DoneIcon fontSize="small" />}
           label="Node Js"
-          color="primary"
+          color="secondary"
+          variant="outlined"
         />
         <Chip
           icon={<DoneIcon fontSize="small" />}
           label="Mongoose"
-          color="primary"
+          color="secondary"
+          variant="outlined"
         />
         <Chip
           icon={<DoneIcon fontSize="small" />}
           label="Material UI"
-          color="primary"
+          color="secondary"
+          variant="outlined"
         />
         <Chip
           icon={<DoneIcon fontSize="small" />}
           label="ESLint"
-          color="primary"
+          color="secondary"
+          variant="outlined"
         />
       </div>
     </Layout>
