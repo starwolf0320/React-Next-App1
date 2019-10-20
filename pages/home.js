@@ -5,6 +5,7 @@ import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
 
 import Layout from '../components/Layout';
+import Head from '../components/Head';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,6 +27,7 @@ const Home = () => {
 
   return (
     <Layout>
+      <Head title="Home Page" description="Home page" />
       <Paper className={classes.root}>
         <Typography variant="h5" component="h3">
           Todo Application.

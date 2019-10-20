@@ -4,6 +4,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
+import Head from '../components/Head';
 import TodoList from '../components/TodoList';
 import TodoForm from '../components/TodoForm';
 import useTodoState from '../utils/state/useTodoState';
@@ -93,6 +94,10 @@ const Todos = ({ todosData }) => {
 
   return (
     <Layout>
+      <Head
+        title="Todos"
+        description="Todo page, todo list, add todo, delete todo, complete todo"
+      />
       <ListSubheader className={classes.stickyHeader}>
         <TodoForm
           saveTodo={todoText => {
