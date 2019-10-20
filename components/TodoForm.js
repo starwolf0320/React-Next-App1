@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const TodoForm = ({ saveTodo }) => {
-  const { value, reset, onChange } = useInputState('');
+  const { value, onChange, reset } = useInputState('');
   const classes = useStyles();
 
   return (

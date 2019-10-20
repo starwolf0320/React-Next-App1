@@ -3,6 +3,8 @@ import React from 'react';
 import App from 'next/app';
 
 import { ThemeProvider } from '@material-ui/styles';
+import 'react-notifications-component/dist/theme.css';
+import 'react-notifications-component/dist/scss/notification.scss';
 
 import theme from '../utils/theme';
 

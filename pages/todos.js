@@ -32,7 +32,6 @@ const Todos = ({ todosData }) => {
       .then(response => response.json())
       .then(json => {
         addTodo(json);
-        console.log('item is added', json);
       });
   };
 
@@ -45,9 +44,8 @@ const Todos = ({ todosData }) => {
       },
     })
       .then(response => response.json())
-      .then(json => {
+      .then(() => {
         deleteTodo(todoIndex);
-        console.log('item is deleted', json);
       });
   };
 
@@ -61,9 +59,7 @@ const Todos = ({ todosData }) => {
       },
     })
       .then(response => response.json())
-      .then(json => {
-        console.log('todo status', json);
-      });
+      .then(() => {});
   };
 
   const handleSubmit = itemValue => {
