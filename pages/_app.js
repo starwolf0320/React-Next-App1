@@ -1,10 +1,8 @@
 import React from 'react';
 
 import App from 'next/app';
-import Head from 'next/head';
 
 import { ThemeProvider } from '@material-ui/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 
 import theme from '../utils/theme';
 
@@ -22,11 +20,7 @@ class MyApp extends App {
 
     return (
       <>
-        <Head>
-          <title>My page</title>
-        </Head>
         <ThemeProvider theme={theme}>
-          <CssBaseline />
           <Component {...pageProps} />
         </ThemeProvider>
       </>

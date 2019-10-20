@@ -30,7 +30,6 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) => {
         <ListItem key={index.toString()} dense>
           <ListItemText
             primary={todo.name}
-            color="secondary"
             className={todo.isCompleted ? classes.todoCompleted : ''}
           />
           <ListItemSecondaryAction>

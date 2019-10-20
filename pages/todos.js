@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Layout from '../components/Layout';
 import TodoList from '../components/TodoList';
 import TodoForm from '../components/TodoForm';
-import useTodoState from '../components/useTodoState';
+import useTodoState from '../utils/state/useTodoState';
 
 const useStyles = makeStyles({
   stickyHeader: {
@@ -21,7 +21,7 @@ const Todos = ({ todosData }) => {
 
   // add todo api
   const addTodoApi = todo => {
-    fetch('http://localhost:3000/api/todo/add', {
+    fetch('/api/todo/add', {
       method: 'POST',
       body: JSON.stringify(todo),
       headers: {
@@ -37,7 +37,7 @@ const Todos = ({ todosData }) => {
 
   // delete todo api
   const deleteTodoApi = (todoIndex, todoId) => {
-    fetch(`http://localhost:3000/api/todo/delete/${todoId}`, {
+    fetch(`/api/todo/delete/${todoId}`, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -52,7 +52,7 @@ const Todos = ({ todosData }) => {
 
   // complete todo api
   const completeTodoApi = (todoId, todo) => {
-    fetch(`http://localhost:3000/api/todo/complete/${todoId}`, {
+    fetch(`/api/todo/complete/${todoId}`, {
       method: 'PUT',
       body: JSON.stringify(todo),
       headers: {

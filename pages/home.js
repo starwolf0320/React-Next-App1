@@ -45,7 +45,7 @@ const Home = () => {
         />
         <Chip
           icon={<DoneIcon fontSize="small" />}
-          label="React"
+          label="React Hooks"
           color="secondary"
           variant="outlined"
         />

@@ -8,7 +8,7 @@ import Header from './Header';
 
 const useStyles = makeStyles(() => ({
   root: {
-    marginTop: 30,
+    marginTop: 20,
   },
 }));
 

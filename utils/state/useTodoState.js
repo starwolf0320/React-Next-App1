@@ -6,7 +6,7 @@ export default initialValue => {
   return {
     todos,
     addTodo: todoText => {
-      setTodos([...todos, todoText]);
+      setTodos([todoText, ...todos]);
     },
 
     completeTodo: todoIndex => {
