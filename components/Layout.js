@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
 const Layout = props => {
   const classes = useStyles();
   return (
-    // React Fragment
+    // <></> is also a new short syntax for declaring React Fragment
     <>
       <CssBaseline />
       <Header />

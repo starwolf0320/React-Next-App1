@@ -30,15 +30,15 @@
 /* Remove these to get rid of the spinner */
 #nprogress .spinner {
   display: block;
-  position: fixed;
+  position: absolute;
   z-index: 1031;
-  top: 15px;
-  right: 15px;
+  top: 50%;
+  left: 50%;
 }
 
 #nprogress .spinner-icon {
-  width: 18px;
-  height: 18px;
+  width: 28px;
+  height: 28px;
   box-sizing: border-box;
 
   border: solid 2px transparent;

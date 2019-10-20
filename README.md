@@ -16,7 +16,7 @@ $ git clone https://github.com/mohamedsamara/react-next-app.git
 $ cd project
 $ npm install
 
-```
+```  
 
 
 ## Run the application for development

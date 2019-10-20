@@ -35,7 +35,7 @@ const TodoForm = ({ saveTodo }) => {
     >
       <TextField
         fullWidth
-        label="Name"
+        label="Title"
         className={classes.textField}
         placeholder="Todo"
         margin="normal"
