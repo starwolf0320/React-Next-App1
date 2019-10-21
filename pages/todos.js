@@ -69,7 +69,13 @@ const Todos = ({ todosData }) => {
     })
       .then(response => response.json())
       .then(() => {
-        showMessage(true, 'Todo has been completed successfully!', 'info');
+        showMessage(
+          true,
+          todo.isCompleted
+            ? 'Todo has been completed successfully!'
+            : 'Todo has been uncompleted successfully!',
+          'info',
+        );
       });
   };
 

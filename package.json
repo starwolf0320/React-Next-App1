@@ -2,11 +2,11 @@
   "name": "react-next-app",
   "version": "1.0.0",
   "description": "React Next Application",
-  "main": "index.js",
+  "main": "server/app.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node server/app.js",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "cross-env NODE_ENV=production node server/app.js",
     "lint": "eslint *.js && eslint pages --ignore-path .eslintignore",
     "lint:fix": "eslint *.js --fix && eslint pages --fix --ignore-path .eslintignore",
     "test": "echo \"Error: no test specified\" && exit 1"
