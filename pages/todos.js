@@ -5,9 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
 import Head from '../components/Head';
+import Message from '../components/Message';
 import TodoList from '../components/TodoList';
 import TodoForm from '../components/TodoForm';
 import useTodoState from '../utils/state/useTodoState';
+import useSnackbarState from '../utils/state/useSnackbarState';
 
 const useStyles = makeStyles({
   stickyHeader: {
@@ -17,6 +19,11 @@ const useStyles = makeStyles({
 
 const Todos = ({ todosData }) => {
   const { todos, addTodo, completeTodo, deleteTodo } = useTodoState(todosData);
+  const { values, showMessage, hideMessage } = useSnackbarState({
+    isOpen: false,
+    message: '',
+    variant: '',
+  });
 
   const classes = useStyles();
 
@@ -32,6 +39,7 @@ const Todos = ({ todosData }) => {
       .then(response => response.json())
       .then(json => {
         addTodo(json);
+        showMessage(true, 'Todo has been added successfully!', 'success');
       });
   };
 
@@ -46,6 +54,7 @@ const Todos = ({ todosData }) => {
       .then(response => response.json())
       .then(() => {
         deleteTodo(todoIndex);
+        showMessage(true, 'Todo has been deleted successfully!', 'info');
       });
   };
 
@@ -59,7 +68,9 @@ const Todos = ({ todosData }) => {
       },
     })
       .then(response => response.json())
-      .then(() => {});
+      .then(() => {
+        showMessage(true, 'Todo has been completed successfully!', 'info');
+      });
   };
 
   const handleSubmit = itemValue => {
@@ -88,12 +99,21 @@ const Todos = ({ todosData }) => {
     completeTodoApi(todoId, newItem);
   };
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    hideMessage(false);
+  };
+
   return (
     <Layout>
       <Head
         title="Todos"
         description="Todo page, todo list, add todo, delete todo, complete todo"
       />
+      <Message values={values} handleClose={handleClose} />
       <ListSubheader className={classes.stickyHeader}>
         <TodoForm
           saveTodo={todoText => {
