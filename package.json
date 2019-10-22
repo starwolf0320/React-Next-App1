@@ -19,7 +19,9 @@
     "react",
     "next",
     "express",
-    "eslint"
+    "mongoose",
+    "eslint",
+    "material-ui"
   ],
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
   "license": "ISC",
