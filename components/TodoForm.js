@@ -1,8 +1,9 @@
 import React from 'react';
+
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
-import useInputState from '../utils/state/useInputState';
+import useInputState from '../utils/customHooks/useInputState';
 
 const useStyles = makeStyles(theme => ({
   container: {

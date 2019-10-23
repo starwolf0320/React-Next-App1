@@ -8,8 +8,8 @@ import Head from '../components/Head';
 import Message from '../components/Message';
 import TodoList from '../components/TodoList';
 import TodoForm from '../components/TodoForm';
-import useTodoState from '../utils/state/useTodoState';
-import useSnackbarState from '../utils/state/useSnackbarState';
+import useTodoState from '../utils/customHooks/useTodoState';
+import useSnackbarState from '../utils/customHooks/useSnackbarState';
 
 const useStyles = makeStyles({
   stickyHeader: {

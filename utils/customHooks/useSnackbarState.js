@@ -15,11 +15,11 @@ export default initialValue => {
       setValue(newValues);
     },
     hideMessage: isOpen => {
-      //   const newValues = { ...values };
+      const newValues = { ...values };
 
-      values.isOpen = isOpen;
-      values.message = '';
-      values.variant = '';
+      newValues.isOpen = isOpen;
+      newValues.message = '';
+      newValues.variant = '';
 
       setValue(values);
     },
