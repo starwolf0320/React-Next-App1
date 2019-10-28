@@ -21,7 +21,7 @@ export default initialValue => {
       newValues.message = '';
       newValues.variant = '';
 
-      setValue(values);
+      setValue(newValues);
     },
   };
 };

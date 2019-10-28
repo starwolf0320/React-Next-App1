@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 import { amber } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -35,20 +37,30 @@ const Message = ({ values, handleClose }) => {
 
   return (
     <Snackbar
-      //   className={classes[values.variant]}
       anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'center',
       }}
       open={values.isOpen}
       autoHideDuration={2000}
+      onClose={handleClose}
       ContentProps={{
         'aria-describedby': 'message-id',
         classes: {
           root: classes[values.variant],
         },
       }}
-      onClose={handleClose}
+      action={[
+        <IconButton
+          key="close"
+          aria-label="close"
+          color="inherit"
+          className={classes.close}
+          onClick={handleClose}
+        >
+          <CloseIcon />
+        </IconButton>,
+      ]}
       message={<span id="message-id">{values.message}</span>}
     />
   );

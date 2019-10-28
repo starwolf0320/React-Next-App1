@@ -20,8 +20,9 @@ const useStyles = makeStyles(theme => ({
   },
   todoItemBg: {
     backgroundColor: '#fff',
-    borderRadius: 25,
+    borderRadius: 15,
     marginBottom: 10,
+    padding: 15,
   },
   todoCompleted: {
     textDecoration: 'line-through',
