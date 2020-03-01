@@ -57,18 +57,18 @@ const Header = () => {
           />
           <Typography variant="h6" className={classes.title}>
             <Link href="/">
-              <a className={classes.titleLink}>Todo Application</a>
+              <a className={classes.titleLink}>React Next Application</a>
             </Link>
           </Typography>
           <ul className={classes.menuLinks}>
             <li>
-              <Link href="/todos">
-                <a>Todos</a>
+              <Link href="/home">
+                <a>Home</a>
               </Link>
             </li>
             <li>
-              <Link href="/home">
-                <a>Home</a>
+              <Link href="/todos">
+                <a>Todos</a>
               </Link>
             </li>
           </ul>
