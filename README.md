@@ -6,7 +6,7 @@
   * Mongoose schemas to model the application data
   * Next is used for React server rendering
   * React Hooks in functional components
-  * Material UI for react components
+  * Material UI for React components
 
 
 ## Install

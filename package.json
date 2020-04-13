@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "React Next Application",
   "main": "server/app.js",
+  "engines": {
+    "node": "10.15.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "dev": "node server/app.js",
     "build": "next build",
     "start": "cross-env NODE_ENV=production node server/app.js",
+    "postinstall": "npm run build",
     "lint": "eslint *.js && eslint pages --ignore-path .eslintignore",
     "lint:fix": "eslint *.js --fix && eslint pages --fix --ignore-path .eslintignore",
     "test": "echo \"Error: no test specified\" && exit 1"

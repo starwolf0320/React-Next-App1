@@ -7,12 +7,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
   title: {
     flexGrow: 1,
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.90rem',
+    },
   },
   menuLinks: {
     listStyle: 'none',
