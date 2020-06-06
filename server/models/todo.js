@@ -7,7 +7,7 @@ const TodoSchema = new Schema({
   name: {
     type: String,
   },
-  isCompleted: {
+  is_completed: {
     type: Boolean,
   },
 });

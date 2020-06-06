@@ -42,7 +42,7 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) => {
           <ListItem key={index.toString()} className={classes.todoItemBg} dense>
             <ListItemText
               primary={todo.name}
-              className={todo.isCompleted ? classes.todoCompleted : ''}
+              className={todo.is_completed ? classes.todoCompleted : ''}
             />
             <ListItemSecondaryAction>
               <IconButton
@@ -57,9 +57,9 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={todo.isCompleted}
+                    checked={todo.is_completed}
                     onChange={() => {
-                      completeTodo(index, todo._id, !todo.isCompleted);
+                      completeTodo(index, todo._id, !todo.is_completed);
                     }}
                     color="secondary"
                   />

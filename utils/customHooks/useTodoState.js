@@ -11,7 +11,7 @@ export default initialValue => {
 
     completeTodo: todoIndex => {
       const newTodos = [...todos];
-      newTodos[todoIndex].isCompleted = !newTodos[todoIndex].isCompleted;
+      newTodos[todoIndex].is_completed = !newTodos[todoIndex].is_completed;
 
       setTodos(newTodos);
     },
