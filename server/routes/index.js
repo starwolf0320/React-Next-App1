@@ -17,7 +17,7 @@ router.get('/todos', (req, res, next) => {
 router.post('/todo/add', (req, res, next) => {
   const todo = new Todo({
     name: req.body.name,
-    is_completed: req.body.isCompleted,
+    isCompleted: req.body.isCompleted,
   });
   todo
     .save()
@@ -28,7 +28,7 @@ router.post('/todo/add', (req, res, next) => {
 router.put('/todo/complete/:id', (req, res, next) => {
   const query = { _id: req.params.id };
   const todo = {
-    is_completed: req.body.isCompleted,
+    isCompleted: req.body.isCompleted,
   };
 
   Todo.updateOne(query, todo)
